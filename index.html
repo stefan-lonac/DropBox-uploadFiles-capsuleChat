@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dist/jquery-lbry.min.js"></script>
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/driver/dist/driver.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Files - Dropbox</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content sl__flex sl__sb">
+            <div class="logo sl__flex sl__ac">
+                <span class="hover-cube">
+                <img class="hover-cube" src="assets/img/cube-dots.svg" alt="">
+            </span>
+                <img class="desktop-logo" src="assets/img/logo.svg" alt="" id="logo-id">
+                <img class="mobile-hamburger" id="toggle-side-nav" src="assets/img/hamburger.svg" alt="">
+            </div>
+
+            <div class="utilities sl__flex sl__ac">
+                <div class="search sl__flex sl__ac">
+                    <img src="assets/img/search.svg" alt="">
+                    <input type="text" name="" id="" placeholder="Search">
+                </div>
+
+                <span class="hover-cube">
+                <img src="assets/img/info.svg" alt="">
+            </span>
+
+                <span class="hover-cube">
+                <img src="assets/img/bell.svg" alt="">
+            </span>
+
+                <div class="name hover-cube">
+                    <span>JB</span>
+                </div>
+            </div>
+            <!-- END: utilities -->
+        </div>
+        <!-- END: header-content -->
+    </header>
+
+    <main class="sl__flex sl__jce">
+        <aside class="files-info-nav" id="side-nav">
+            <ul>
+                <li>
+                    <div class="info-files-text">Home</div>
+                </li>
+                <li>
+                    <div class="info-files-text">All files</div>
+                </li>
+                <li>
+                    <div class="info-files-text">Recents</div>
+                </li>
+                <li>
+                    <div class="info-files-text">Starred</div>
+                </li>
+                <li>
+                    <div class="info-files-text">Photos</div>
+                </li>
+                <li>
+                    <div class="info-files-text">Shared</div>
+                </li>
+                <li>
+                    <div class="info-files-text">File requests</div>
+                </li>
+                <li>
+                    <div class="info-files-text">Deleted files</div>
+                </li>
+                <li>
+                    <div class="info-files-text">Privacy and legal</div>
+                </li>
+            </ul>
+        </aside>
+        <!-- END: files-info-nav -->
+
+        <section id="table-folders" class="drag-area">
+            <div class="content-files">
+                <div class="head-files sl__flex sl__sb">
+                    <h2>Dropbox</h2>
+                    <div class="icons-head sl__flex sl__ac">
+                        <img src="assets/img/hamburger-2.svg" alt="">
+                        <img src="assets/img/arrow-down.svg" alt="">
+                    </div>
+                </div>
+                <!-- END: head-files -->
+
+                <div class="buttons-files sl__flex sl__ac">
+                    <div class="upload sl__flex sl__ac" id="target-upload">
+                        <img src="assets/img/arrow-line-up-white.svg" alt="">
+                        <button class="button-upload">Upload</button>
+                        <input type="file" hidden />
+                        <img src="assets/img/arrow-down-white.svg" alt="">
+                    </div>
+
+                    <div class="create sl__flex sl__ac">
+                        <img src="assets/img/plus.svg" alt="">
+                        <button>Create</button>
+                        <img src="assets/img/arrow-down.svg" alt="">
+                    </div>
+
+                    <div class="separator"></div>
+
+                    <div class="dots">
+                        <button>
+                        <img src="assets/img/dots-3.svg" alt="">
+                    </button>
+                    </div>
+                </div>
+                <!-- END: buttons-files -->
+            </div>
+            <!-- END: content-files -->
+
+            <div class="table-files">
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox" style="width: 20px; height: 20px;">
+                                    <input type="checkbox" name="" id="">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="th-content sl__flex sl__sb">
+                                    <div class="sort-content">
+                                        <button>Name</button>
+                                        <img src="assets/img/arrow-up-long.svg" alt="">
+                                    </div>
+                                    <div class="arrow-sort">
+                                        <img src="assets/img/arrow-down.svg" alt="">
+                                    </div>
+                                </div>
+                            </th>
+
+                            <th>
+                                <div class="th-content sl__flex sl__sb">
+                                    <div class="sort-content">
+                                        <button>Modified</button>
+                                        <img src="assets/img/arrow-up-long.svg" alt="">
+                                    </div>
+                                    <div class="arrow-sort">
+                                        <img src="assets/img/arrow-down.svg" alt="">
+                                    </div>
+                                </div>
+                            </th>
+
+                            <th>
+                                <div class="th-content sl__flex sl__sb">
+                                    <div class="sort-content">
+                                        <button>Who can access</button>
+                                        <img src="assets/img/arrow-up-long.svg" alt="">
+                                    </div>
+                                    <div class="arrow-sort">
+                                        <img src="assets/img/arrow-down.svg" alt="">
+                                    </div>
+                                </div>
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox" style="width: 20px; height: 20px;">
+                                    <input type="checkbox" name="" id="">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="td-content sl__flex sl__sb sl__ac">
+                                    <div class="sl__flex sl__ac">
+                                        <img src="assets/img/file.svg" alt="">
+                                        <p>John Baker</p>
+                                    </div>
+                                    <img src="assets/img/star.svg" alt="">
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="td-content sl__flex sl__ac">
+                                    <p>24/04/2022 6:18 am</p>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="td-content sl__flex sl__ac">
+                                    <p>Only you</p>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="checkbox" style="width: 20px; height: 20px;">
+                                    <input type="checkbox" name="" id="">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="td-content sl__flex sl__sb sl__ac">
+                                    <div class="sl__flex sl__ac">
+                                        <img src="assets/img/file-pdf.svg" alt="">
+                                        <p>clickup.png</p>
+                                    </div>
+                                    <img src="assets/img/star.svg" alt="">
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="td-content sl__flex sl__ac">
+                                    <p>24/04/2022 6:20 am</p>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="td-content sl__flex sl__ac">
+                                    <p>Only you</p>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- END: table-files -->
+        </section>
+
+        <aside id="informations-aside">
+
+            <div class="information-slide">
+                <div class="head-info-slide sl__flex sl__sb" id="head-info-slide">
+                    <h2>Dropbox</h2>
+                    <img class="info-open-close" src="assets/img/arrow-close.svg" alt="">
+                </div>
+
+                <div class="icons-close inactive-icons sl__flex sl__dc" id="icons-on-close">
+
+                    <div class="info-open-close">
+                        <img src="assets/img/arrow-right-close.svg" alt="">
+                    </div>
+
+                    <div class="hover-cube">
+                        <img src="assets/img/info-icon.svg" alt="">
+                    </div>
+
+                    <div class="hover-cube">
+                        <img src="assets/img/pin-icon.svg" alt="">
+                    </div>
+
+                    <div class="hover-cube">
+                        <img src="assets/img/file-clock.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="head-accordion" id="head-accordion">
+                    <div class="accordion">
+
+                        <div class="info accordions">
+                            <div class="info-accord-head accord-head-text sl__flex sl__ac triggers-accordions active-color-first">
+                                <img src="assets/img/info-icon.svg" alt="">
+                                <h2>Info</h2>
+                            </div>
+
+                            <div class="info-accord-content padding-content accordion-content first-child-accordion">
+                                <div class="image">
+                                    <img src="assets/img/dropbox-file.svg" alt="">
+                                </div>
+                                <!-- END: image -->
+                                <div class="tags">
+                                    <div class="tags-label sl__flex sl__sb">
+                                        <h2>Tags</h2>
+                                        <div class="sl__flex">
+                                            <p>Who can see my tags?</p>
+                                            <img src="assets/img/info.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="tags-input">
+                                        <input type="text" placeholder="# Add a tag">
+                                        <p>Add a few details about this folder here.</p>
+                                    </div>
+                                </div>
+                                <!-- END: tags -->
+                            </div>
+                            <!-- END: info-accord-content -->
+                        </div>
+                        <!-- END: info -->
+
+
+                        <div class="pinned accordions">
+                            <div class="pinned-accord-head accord-head-text sl__flex sl__ac triggers-accordions">
+                                <img src="assets/img/pin-icon.svg" alt="">
+                                <h2>Pinned items</h2>
+                            </div>
+
+                            <div class="pinned-drag-drop padding-content accordion-content">
+                                <div class="pinned-border sl__flex sl__jcc">
+                                    <p>Drag files or folders into here to quickly find them later.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: pinned -->
+
+                        <div class="activity accordions">
+                            <div class="activity-accord-head accord-head-text sl__flex sl__ac triggers-accordions">
+                                <img src="assets/img/file-clock.svg" alt="">
+                                <h2>Activity</h2>
+                            </div>
+
+                            <div class="activity-drag-drop padding-content accordion-content">
+                                <p>That’s as far back as it goes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END: accordion -->
+                </div>
+            </div>
+            <!-- END: information-slide -->
+        </aside>
+
+    </main>
+
+
+    <div class="capsule-chat" id="capsule-chat">
+
+        <div class="chat__content sl__flex sl__dc" id="chat-content">
+
+            <div class="loading-animation hide-loading">
+                <img src="assets/img/loading-animation.gif" alt="">
+            </div>
+
+            <div id="chat-icon" class="trigger-chat fadeIn sl__flex sl__ac sl__sa" onclick="chatLogo()">
+                <img src="assets/img/logo-tara.png" alt="">
+            </div>
+
+            <div class="chat__main" id="chat__main">
+
+                <div class="chat-header scale-up-hor-right">
+
+                    <div class="chat__log sl__flex sl__ac">
+                        <img src="assets/img/logo-tara.png" alt="">
+                        <h3 class="steps-active">Tara</h3>
+                        <p class="steps-active">Suspicious site</p>
+                    </div>
+
+                    <div class="chat__close trigger-chat">
+                        <a class="steps-header-chat__open steps-header-button steps-active" onclick="backToTour()">Back to tour</a>
+                        <div class="chat-draggable">
+                            <img src="assets/img/Drag.svg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="scale-up-top" id="content-main-id">
+
+                    <div class="main" id="chatScroll">
+                        <div class="chat__text height-100">
+
+                            <div class="chat__message height-100" id="chat-message">
+
+                                <section class="chat__container height-fill sl__flex sl__dc sl__sb hidden-fade-chat">
+                                    <div class="chat__main-message">
+                                        <strong>This looks like a phishing website.</strong> Continuing could put you and your organization at risk.
+                                    </div>
+
+                                    <div class="chat__button sl__flex sl__jce sl__dc sl__end">
+                                        <button type="button" class="personal-use buttons-chat button-click" onclick="startProcess()">Show me why it’s suspicious</button>
+                                        <button type="button" class="business-use buttons-chat button-click" onclick="doneMessage()">Got it, do nothing</button>
+                                    </div>
+                                </section>
+
+                            </div>
+                            <!-- END: chat__message -->
+
+                        </div>
+                        <!-- END: chat__text -->
+
+                    </div>
+
+                    <div class="chat-footer">
+                        <div class="chat__input">
+                            <div class="inputs">
+                                <input type="text" name="" id="chat-dialog" placeholder="Type a message">
+                                <img id="send-dialog" src="assets/img/send.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- END: chat__content -->
+
+    </div>
+
+    <div class="popup-file" id="popup-file">
+        <div class="popup-content sl__flex sl__dc">
+
+            <div class="popup__header sl__flex sl__sb">
+                <h3>Inbox</h3>
+                <img src="assets/img/popup-close.png" alt="">
+            </div>
+            <!-- END: popup__header -->
+
+            <div class="popup__subject sl__flex sl__sb sl__ac">
+
+                <div class="subject__title sl__flex sl__ac">
+                    <div class="subject__mail">
+                        <img src="assets/img/popup-email-subject.png" alt="">
+                    </div>
+
+                    <div class="subject__text">
+                        <h2>There are some pending new files...</h2>
+                        <p>From: <span>Marshall Russo (marshall.r@micro.com)</span></p>
+                    </div>
+                </div>
+
+                <div class="subject__icons">
+                    <img src="assets/img/corner-up-left.png" alt="">
+                    <img src="assets/img/corner-up-right.png" alt="">
+                    <img src="assets/img/trash-2.png" alt="">
+                </div>
+            </div>
+            <!-- END: popup__subject -->
+
+            <div class="popup__main">
+                <h1>Dear John,<br> there are some pending new files shared with you by Marshall Russo.</h1>
+                <button id="retrive-document">Retrieve new document</button>
+            </div>
+            <!-- END: popup__main -->
+
+        </div>
+    </div>
+    <!-- END: capsule-chat -->
+
+
+
+    <div class="buble-url" id="buble-url-content">
+        <div class="the-content">
+            <div class="bubble-urlbar">
+                <div class="bubbler-spacer">
+                    <svg width="432" height="82" viewBox="0 0 432 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 20C0 8.95429 8.9543 0 20 0H1220C1231.05 0 1240 8.95431 1240 20V81.7326H0V20Z" fill="#DFE3E8"></path>
+                    <path d="M23.3521 37.6816C23.3521 29.9497 29.6201 23.6816 37.3521 23.6816C45.084 23.6816 51.3521 29.9497 51.3521 37.6816C51.3521 45.4136 45.084 51.6816 37.3521 51.6816C29.6201 51.6816 23.3521 45.4136 23.3521 37.6816Z" fill="white"></path>
+                    <path d="M36.8231 43.1458C37.1152 43.438 37.5889 43.438 37.881 43.1458C38.173 42.8539 38.1732 42.3805 37.8815 42.0883L34.2245 38.4248L42.6021 38.4248C43.0163 38.4248 43.3521 38.089 43.3521 37.6748C43.3521 37.2606 43.0163 36.9248 42.6021 36.9248L34.2246 36.9248L37.8838 33.2721C38.1782 32.9782 38.1785 32.5012 37.8843 32.2071C37.5904 31.9131 37.1137 31.9131 36.8198 32.2071L31.7965 37.2304C31.551 37.4758 31.551 37.8738 31.7965 38.1192L36.8231 43.1458Z" fill="#919EAB"></path>
+                    <path d="M87.3521 37.6816C87.3521 45.4136 81.084 51.6816 73.3521 51.6816C65.6201 51.6816 59.3521 45.4136 59.3521 37.6816C59.3521 29.9497 65.6201 23.6816 73.3521 23.6816C81.084 23.6816 87.3521 29.9497 87.3521 37.6816Z" fill="white"></path>
+                    <path d="M73.881 32.2175C73.5889 31.9253 73.1152 31.9253 72.8231 32.2175C72.5311 32.5094 72.5309 32.9827 72.8226 33.275L76.4796 36.9385L68.1021 36.9385C67.6878 36.9385 67.3521 37.2743 67.3521 37.6885C67.3521 38.1027 67.6878 38.4385 68.1021 38.4385L76.4796 38.4385L72.8203 42.0912C72.5259 42.3851 72.5256 42.8621 72.8198 43.1562C73.1137 43.4502 73.5904 43.4502 73.8843 43.1562L78.9076 38.1329C79.1531 37.8875 79.1531 37.4895 78.9076 37.244L73.881 32.2175Z" fill="#919EAB"></path>
+                    <path d="M99.3521 37.6816C99.3521 27.1882 107.859 18.6816 118.352 18.6816H918.352C928.845 18.6816 937.352 27.1882 937.352 37.6816C937.352 48.1751 928.845 56.6816 918.352 56.6816H118.352C107.859 56.6816 99.3521 48.1751 99.3521 37.6816Z" fill="white"></path>
+                </svg>
+                    <div id="buble-url" class="bubble-urlbar-text" style="font-size: 18px;">www.dropbox.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: buble-url -->
+
+
+    <script src="dist/jquery-ui.min.js"></script>
+    <script src="assets/driver/dist/driver.min.js"></script>
+    <script src="dist/main.js"></script>
+    <script src="dist/triggers.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+// Atlas
+@font-face {
+    font-family: 'Atlas Grotesk Web';
+    src: url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Regular-Web.eot');
+    src: url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Regular-Web.eot?#iefix') format('embedded-opentype'), url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Regular-Web.woff') format('woff'), url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Regular-Web.ttf') format('truetype'), url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Regular-Web.svg#Atlas Grotesk Web') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: 'Atlas Grotesk Web';
+    src: url('https://cfl.dropboxstatic.com/static/fonts/paper-atlasgrotesk/AtlasGrotesk-Medium-Web.woff2') format('woff2'), url('https://cfl.dropboxstatic.com/static/fonts/paper-atlasgrotesk/AtlasGrotesk-Medium-Web.woff') format('woff'), url('https://cfl.dropboxstatic.com/static/fonts/paper-atlasgrotesk/AtlasGrotesk-Medium-Web.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: 'Atlas Grotesk Web';
+    src: url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Bold-Web.eot');
+    src: url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Bold-Web.eot?#iefix') format('embedded-opentype'), url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Bold-Web.woff') format('woff'), url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Bold-Web.ttf') format('truetype'), url('https://cfl.dropboxstatic.com/static/fonts/atlasgrotesk/AtlasGrotesk-Bold-Web.svg#Atlas Grotesk Web') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: 'SharpGrotesk';
+    src: url('https://cfl.dropboxstatic.com/static/fonts/sharpgrotesk/SharpGroteskDBBook20.woff2') format('woff2'), url('https://cfl.dropboxstatic.com/static/fonts/sharpgrotesk/SharpGroteskDBBook20.woff') format('woff'), url('https://cfl.dropboxstatic.com/static/fonts/sharpgrotesk/SharpGroteskDBBook20.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+// Rototo
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/webfonts/roboto/Roboto-Regular.ttf'), format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+// Poppins
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins'), url('../assets/webfonts/popins/Poppins-Regular.woff') format('woff');
+}
+
+
+// DM Sans
+@font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DM Sans'), url('../assets/webfonts/dm-sans/dm-sans.woff') format('woff');
+}
