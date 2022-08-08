@@ -659,7 +659,7 @@ main {
 body {
     .hide-driver {
         // display: none!important;
-        opacity: 0!important;
+        // opacity: 0!important;
         pointer-events: none;
     }
     // &.active-overlay-body {
@@ -678,6 +678,7 @@ body {
         padding: 0;
         border-radius: 24px;
         @include transition(all 0.4s ease-in-out);
+
         >div {
             padding: 0 15px 15px;
             &:nth-child(1),
@@ -691,17 +692,20 @@ body {
             }
         }
     }
-    #driver-page-overlay.glass-overlay {
-        background: rgba( 0, 0, 0, 0.2)!important;
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37)!important;
-        backdrop-filter: blur( 20px)!important;
-        -webkit-backdrop-filter: blur( 20px)!important;
-        opacity: 1!important;
-        @include transition(all 0.4s ease-in-out);
-        &.hide-driver {
-            // display: none!important;
-            opacity: 0!important;
-            pointer-events: none;
+    div#driver-page-overlay {
+        background-color: unset;
+        &.glass-overlay {
+            background: rgba( 0, 0, 0, 0.2)!important;
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37)!important;
+            backdrop-filter: blur( 20px)!important;
+            -webkit-backdrop-filter: blur( 20px)!important;
+            // opacity: 1!important;
+            @include transition(all 0.4s ease-in-out);
+            &.hide-driver {
+                // display: none!important;
+                // opacity: 0!important;
+                pointer-events: none;
+            }
         }
     }
     div#driver-highlighted-element-stage {
@@ -944,7 +948,7 @@ body {
 /* Buble Url */
 
 .buble-url {
-    display: none;
+    opacity: 0;
     top: 2%;
     left: 10%;
     position: fixed;
@@ -954,7 +958,7 @@ body {
     background-color: #fff;
     transition: opacity .4s ease-in-out;
     &.active-buble {
-        display: block;
+        opacity: 1;
     }
     .bubbler-spacer {
         display: block;

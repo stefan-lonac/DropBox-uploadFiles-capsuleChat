@@ -293,10 +293,10 @@
  * ----------------------------------------
  */
 .fadeInUp {
-  -webkit-animation: fadeInUp 2s;
-          animation: fadeInUp 2s;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation: fadeInUp 1.5s;
+          animation: fadeInUp 1.5s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
@@ -324,10 +324,10 @@
  * ----------------------------------------
  */
 .fadeInDown {
-  -webkit-animation: fadeInDown 2s;
-          animation: fadeInDown 2s;
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
+  -webkit-animation: fadeInDown 1.5s;
+          animation: fadeInDown 1.5s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
@@ -1402,10 +1402,10 @@
  * ----------------------------------------
  */
 .fadeInUp {
-  -webkit-animation: fadeInUp 2s;
-          animation: fadeInUp 2s;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation: fadeInUp 1.5s;
+          animation: fadeInUp 1.5s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
@@ -1424,10 +1424,10 @@
  * ----------------------------------------
  */
 .fadeInDown {
-  -webkit-animation: fadeInDown 2s;
-          animation: fadeInDown 2s;
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
+  -webkit-animation: fadeInDown 1.5s;
+          animation: fadeInDown 1.5s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
@@ -2397,7 +2397,6 @@ body {
   /* END: Popup style */
 }
 body .hide-driver {
-  opacity: 0 !important;
   pointer-events: none;
 }
 body div#driver-popover-item {
@@ -2418,20 +2417,21 @@ body div#driver-popover-item > div:nth-child(1), body div#driver-popover-item > 
 body div#driver-popover-item .driver-popover-tip.left {
   top: 50px;
 }
-body #driver-page-overlay.glass-overlay {
+body div#driver-page-overlay {
+  background-color: unset;
+}
+body div#driver-page-overlay.glass-overlay {
   background: rgba(0, 0, 0, 0.2) !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  opacity: 1 !important;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
-body #driver-page-overlay.glass-overlay.hide-driver {
-  opacity: 0 !important;
+body div#driver-page-overlay.glass-overlay.hide-driver {
   pointer-events: none;
 }
 body div#driver-highlighted-element-stage {
@@ -2669,7 +2669,7 @@ body .popup-file .popup-content #close-popup button {
 
 /* Buble Url */
 .buble-url {
-  display: none;
+  opacity: 0;
   top: 2%;
   left: 10%;
   position: fixed;
@@ -2680,7 +2680,7 @@ body .popup-file .popup-content #close-popup button {
   transition: opacity 0.4s ease-in-out;
 }
 .buble-url.active-buble {
-  display: block;
+  opacity: 1;
 }
 .buble-url .bubbler-spacer {
   display: block;

@@ -46,9 +46,7 @@ var dropArea = document.querySelector('.drag-area');
 var dragText = document.querySelector('.header');
 var button = dropArea.querySelector('.button-upload');
 var input = dropArea.querySelector('input');
-var file; // Array for chat position
-
-var positionSave = []; // Function for starting driver
+var file; // Function for starting driver
 
 startDriver = function startDriver() {
   // Active popup
@@ -88,6 +86,7 @@ startDriver = function startDriver() {
       overlayDriver.classList.remove('glass-overlay');
       popupCloseFunc();
       mutationSteps();
+      popupContent.classList.remove('active-driver-popup');
     }
   }, // Third Popup
   {
@@ -104,12 +103,14 @@ startDriver = function startDriver() {
       overlayDriver.classList.add('glass-overlay');
       popupCloseFunc();
       mutationSteps();
+      popupContent.classList.add('active-driver-popup');
     },
     onNext: function onNext() {
       // Add class to body for overlay bg
       document.body.classList.add('active-overlay-body');
       mutationSteps();
       showHideClassBublePopup();
+      bubleUrl.classList.remove('fadeInUp');
     }
   }, // Four Popup
   {
@@ -123,14 +124,16 @@ startDriver = function startDriver() {
     onPrevious: function onPrevious() {
       showHideClassBublePopup();
       mutationSteps();
+      bubleUrl.classList.remove('fadeInUp');
     },
     onNext: function onNext() {
       // Add class to body for overlay bg
       document.body.classList.add('active-overlay-body');
       showHideClassBublePopup();
       mutationSteps();
+      bubleUrl.classList.remove('fadeInUp');
     }
-  }, // // Five Popup
+  }, // Five Popup
   {
     element: '#target-upload',
     popover: {
@@ -149,14 +152,11 @@ startDriver = function startDriver() {
       doneMessage();
       openChat();
       mutationSteps();
-      animationChat(); // Remove class for moving chat
-
-      chatContent.classList.remove('move-chat-hide');
-      chatContent.classList.remove('move-chat');
+      animationChat();
+      driverCotainer.classList.add('fadeInDown');
     }
   }]);
-  driver.start();
-  openChat(); // Add class for glass efect overlay
+  driver.start(); // Add class for glass efect overlay
 
   var overlayDriver = document.getElementById('driver-page-overlay');
   overlayDriver.classList.add('glass-overlay'); // Add child element for yellow circle
@@ -169,7 +169,6 @@ startDriver = function startDriver() {
 mutationSteps = function mutationSteps() {
   var observer = new MutationObserver(function (mutations, obs) {
     var driverCotainer = document.getElementById('driver-popover-item');
-    var btns = driverCotainer.querySelectorAll('button');
 
     if (driverCotainer) {
       // Whatch current step and add number of step used from ** className ** Driver
@@ -199,8 +198,14 @@ removeStyleEle = function removeStyleEle() {
       }
     }
   }, 2500);
-}; // Follow the chat and calculate position
+}; // Start position of chat
 
+
+var position = {
+  top: chatContent.offsetTop,
+  left: chatContent.offsetLeft
+};
+var positionSave = [position]; // Follow the chat and calculate position
 
 dragPosition = function dragPosition(event, ui) {
   var xPos = ui.position.left;
@@ -219,8 +224,98 @@ var observerAnimation = new MutationObserver(function (mutations, obs) {
   capsuleHeaderDriver = document.getElementById('driver-header-capsule');
   driverCotainer = document.getElementById('driver-popover-item');
   contentMainID = document.getElementById('content-main-id');
+  overlayDriver = document.getElementById('driver-page-overlay');
+  driverElement = document.getElementById('driver-highlighted-element-stage');
   isActivatedDriver = driver.isActivated; // Checks if the driver is active or not
-  // Add class for disable clicking button and after 2s remove same class (becouse transition bug **keyfames**)
+  // Array for chat position
+
+  if (driverCotainer) {
+    if (!driverCotainer.classList.contains('hide-driver')) {
+      overlayDriver.classList.add('fadeInUp');
+      driverElement.classList.add('fadeInUp');
+      popupContent.classList.add('fadeInUp');
+      driverCotainer.classList.remove('fadeInDown');
+      popupContent.classList.remove('fadeInDown');
+      overlayDriver.classList.remove('fadeInDown');
+      driverElement.classList.remove('fadeInDown'); // Popup buble conditions
+
+      if (bubleUrl.classList.contains('driver-highlighted-element')) {
+        if (bubleUrl.classList.contains('active-buble') && !bubleUrl.classList.contains('hide-driver')) {
+          console.log('No: hide-driver');
+          bubleUrl.classList.remove('fadeInDown');
+          bubleUrl.classList.add('fadeInUp');
+        } else {
+          bubleUrl.classList.add('fadeInDown');
+          bubleUrl.classList.remove('fadeInUp');
+        } // if (!bubleUrl.classList.contains('fadeInDown')) {
+        //     bubleUrl.classList.add('buble-start')
+        // } else {
+        //     bubleUrl.classList.remove('buble-start')
+        // }
+
+
+        if (bubleUrl.classList.contains('buble-start')) {
+          bubleUrl.classList.add('fadeInUp');
+        } else {
+          bubleUrl.classList.remove('fadeInUp');
+        }
+      } else {
+        bubleUrl.classList.remove('buble-start');
+      } // if (!bubleUrl.classList.contains('active-buble') && !bubleUrl.classList.contains('hide-driver')) {
+      //     bubleUrl.classList.remove('fadeInDown')
+      //     bubleUrl.classList.remove('fadeInUp')
+      // }
+
+
+      if (chatContent.classList.contains('active-chat')) {
+        setTimeout(function () {
+          driverCotainer.classList.remove('fadeInUp');
+          return;
+        }, 2000);
+      } else {
+        driverCotainer.classList.add('fadeInUp');
+      }
+
+      if (!popupContent.classList.contains('active-popup')) {
+        popupContent.classList.remove('fadeInUp');
+      }
+    } else {
+      driverCotainer.classList.remove('fadeInUp');
+      popupContent.classList.remove('fadeInUp');
+      popupContent.classList.add('fadeInDown'); // Popup buble conditions
+
+      if (bubleUrl.classList.contains('driver-highlighted-element')) {
+        console.log('start');
+
+        if (bubleUrl.classList.contains('active-buble') && bubleUrl.classList.contains('hide-driver')) {
+          console.log('Yes: hide-driver');
+          bubleUrl.classList.add('fadeInDown');
+          bubleUrl.classList.remove('fadeInUp');
+        }
+      }
+
+      driverCotainer.classList.add('fadeInDown'); // Popup file conditions
+
+      if (!popupContent.classList.contains('active-popup')) {
+        popupContent.classList.remove('fadeInDown');
+      }
+
+      if (overlayDriver && driverElement) {
+        overlayDriver.classList.add('fadeInDown');
+        driverElement.classList.add('fadeInDown');
+        overlayDriver.classList.remove('fadeInUp');
+        driverElement.classList.remove('fadeInUp');
+      }
+    }
+  } // Watch if class exist and than add another class
+
+
+  if (chatContent.classList.contains('move-chat-hide')) {
+    chatContent.classList.add('active-chat');
+  } else {
+    chatContent.classList.remove('active-chat');
+  } // Add class for disable clicking button and after 2s remove same class (becouse transition bug **keyfames**)
+
 
   removeClassDelay = function removeClassDelay() {
     chatHeaderBackTo = document.querySelectorAll('.steps-header-chat__open');
@@ -236,7 +331,7 @@ var observerAnimation = new MutationObserver(function (mutations, obs) {
   };
 
   animationChat = function animationChat() {
-    if (driverCotainer && isActivatedDriver) {
+    if (driverCotainer) {
       // Object with position of driver popup item
       var positionDriver = {
         top: driverCotainer.offsetTop,
@@ -265,7 +360,7 @@ var observerAnimation = new MutationObserver(function (mutations, obs) {
       contentMainID.classList.remove('scale-down-ver-top');
       contentMainID.classList.add('scale-down-ver-bottom');
 
-      if (driverCotainer && isActivatedDriver) {
+      if (driverCotainer) {
         removeClassDelay();
         chatContent.classList.add('move-chat');
         chatContent.classList.remove('move-chat-hide'); // Add style to the head of page
@@ -280,7 +375,7 @@ var observerAnimation = new MutationObserver(function (mutations, obs) {
       contentMainID.classList.remove('scale-down-ver-bottom');
       contentMainID.classList.remove('scale-up-top');
 
-      if (driverCotainer && isActivatedDriver) {
+      if (driverCotainer) {
         removeClassDelay();
         chatContent.classList.add('move-chat-hide');
         chatContent.classList.remove('move-chat'); // Add style to the head of page
@@ -607,50 +702,45 @@ for (b = 0; b < buttonsMessage.length; b++) {
     }
   });
 } // Add class or remove fede on Header Driver popup item
-
-
-fadeDriverHeader = function fadeDriverHeader() {
-  if (driverCotainer) {
-    if (!capsuleHeaderDriver.classList.contains('fadeInDown')) {
-      capsuleHeaderDriver.classList.add('fadeInDown');
-      capsuleHeaderDriver.classList.remove('fadeInUp');
-    } else {
-      capsuleHeaderDriver.classList.remove('fadeInDown');
-      capsuleHeaderDriver.classList.add('fadeInUp');
-    }
-  }
-}; // In driver steps click on Chat button
+// fadeDriverHeader = function() {
+//     if (driverCotainer) {
+//         if (!capsuleHeaderDriver.classList.contains('fadeInDown')) {
+//             capsuleHeaderDriver.classList.add('fadeInDown');
+//             capsuleHeaderDriver.classList.remove('fadeInUp');
+//         } else {
+//             capsuleHeaderDriver.classList.remove('fadeInDown');
+//             capsuleHeaderDriver.classList.add('fadeInUp');
+//         }
+//     }
+// }
+// In driver steps click on Chat button
 
 
 driverHeaderChatBtn = function driverHeaderChatBtn() {
+  driverCotainer.classList.remove('fadeInUp');
   animationChat();
-  fadeDriverHeader();
-  setTimeout(function () {
-    useMessage('How can i help?', true);
-    openChat();
-    stepsHeaderButton();
-    closeCurrentStep();
-  }, 1000);
+  useMessage('How can i help?', true);
+  openChat();
+  stepsHeaderButton();
+  closeCurrentStep();
 }; // On click back to tour button
 
 
 backToTour = function backToTour() {
+  driverCotainer.classList.add('fadeInUp');
+  bubleUrl.classList.add('buble-start');
   animationChat();
-  fadeDriverHeader();
-  setTimeout(function () {
-    openChat();
-    closeCurrentStep();
-    stepsHeaderButton();
-  }, 1000);
+  openChat();
+  closeCurrentStep();
+  stepsHeaderButton();
 }; // Button to start driver and animations
 
 
 startProcess = function startProcess() {
-  animationChat();
-  fadeDriverHeader();
+  startDriver();
   setTimeout(function () {
-    startDriver();
-  }, 1000);
+    animationChat();
+  }, 500);
 };
 
 /***/ }),

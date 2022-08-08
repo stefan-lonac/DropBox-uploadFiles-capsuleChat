@@ -306,8 +306,8 @@ $endAnim: 0%;
  */
 
 .fadeInUp {
-    animation: fadeInUp 2s;
-    animation-delay: 1s;
+    animation: fadeInUp 1.5s;
+    animation-delay: 1.5s;
     animation-fill-mode: both;
 }
 
@@ -324,8 +324,8 @@ $endAnim: 0%;
  */
 
 .fadeInDown {
-    animation: fadeInDown 2s;
-    animation-delay: 0s;
+    animation: fadeInDown 1.5s;
+    animation-delay: 1s;
     animation-fill-mode: both;
 }
 
